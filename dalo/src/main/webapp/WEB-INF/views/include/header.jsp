@@ -37,7 +37,7 @@
 <a href="/.." id="dalo">DALO</a>
 <hr>
 <p id="subm">
-<a href="#">Store</a>
+<a href="/product/listPage">Store</a>
 <span id="dailylook">DailyLook</span>
 <span id="review">Review</span>
 </p>

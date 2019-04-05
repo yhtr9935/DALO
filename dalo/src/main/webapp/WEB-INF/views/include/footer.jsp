@@ -10,7 +10,7 @@
 			height:300px;
 		}
 	table{
-		margin:25px 0 0 40%;
+		margin:25px 0 0 25%;
 		text-align:left;
 		font-size:11px;
 	}
@@ -57,7 +57,7 @@
 </td>
 </tr>
 </table>
-<p id="joos">
+<p id="joos"><br><br><br><br>
 회사명 : (주)XX컴퍼니 / 대표이사 : 임채영 / 사업장주소 : 부산시 사상구 XX동 XXX-XX번지 / 사업자등록번호 : XXX-XX-XXXXX / 통신판매신고번호 : 제XXXX-서울송파-XXX1호 / 개인정보보호책임자 : 홍길동(gildong@naver.com)<br><br><br>
 이용약관 / 개인정보취급방침 / 이용안내 / 고객센터<br><br>
 ⓒ이 콘텐츠는 콘텐츠산업 진흥법에 따라 최소 제작일로부터 5년간 보호됩니다.

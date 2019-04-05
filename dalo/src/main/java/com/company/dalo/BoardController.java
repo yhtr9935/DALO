@@ -103,26 +103,4 @@ public class BoardController {
 		request.setAttribute("page2", criteria);
 		return "board/listPage";
 	}
-	
-	@RequestMapping(value="/addProduct", method=RequestMethod.GET)
-	public void addProductGET() throws Exception{
-		logger.info("글 등록 GET 요청입니다");
-	}
-	
-	@RequestMapping(value="/addProduct", method=RequestMethod.POST)
-	public String addProductPOST(BoardVO board, Model model, RedirectAttributes rttr) {
-		logger.info("글 등록 POST 요청입니다");
-		logger.info(board.toString());
-		try {
-			bs.regist(board);
-		}catch(Exception e) {
-			e.printStackTrace();
-			model.addAttribute("result", "fail");
-			model.addAttribute("errorMsg", e.getMessage());
-			return "/board/listPage";
-		}
-		
-		rttr.addAttribute("result", "success");
-		return "redirect:/board/listPage";
-	}
 }

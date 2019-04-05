@@ -26,11 +26,11 @@
 				<label class="col-md-2 control-label" for="title">이미지</label>
 					<div class="col-md-10">
 						<div>
-							<input type="file" id="input_img" />
+							<input type="file" id="photo" />
 						</div>
 						<div>
 							<div class="img_wrap">
-								<img id="img" style="width:280px; height:280px;" />
+								<img id="photo" style="width:280px; height:280px;" />
 							</div>
 						</div>
 					</div>
