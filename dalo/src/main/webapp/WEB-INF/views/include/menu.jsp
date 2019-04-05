@@ -44,7 +44,7 @@ ${login.name}님&nbsp;&nbsp;
 <a href="/board/listPage">고객센터</a>&nbsp;&nbsp;
 </c:if>
 <c:if test="${login.type == 1}">
-<a href="/board/addProduct">물품등록</a>&nbsp;&nbsp;
+<a href="/product/addProduct">물품등록</a>&nbsp;&nbsp;
 </c:if>
 </p>
 </body>

@@ -11,14 +11,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.company.domain.BoardVO;
 import com.company.domain.Criteria;
 import com.company.domain.PageMaker;
 import com.company.service.BoardService;
-import com.company.service.BoardServiceImpl;
 
 @Controller
 @RequestMapping("/board")

@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.company.DTO.LoginDTO;
-import com.company.domain.BoardVO;
 import com.company.domain.UserVO;
-import com.company.service.BoardService;
 import com.company.service.UserService;
 
 @Controller

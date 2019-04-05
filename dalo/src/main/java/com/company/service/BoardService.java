@@ -1,8 +1,6 @@
 package com.company.service;
 
 import java.util.List;
-import java.util.Map;
-
 import com.company.domain.BoardVO;
 import com.company.domain.Criteria;
 

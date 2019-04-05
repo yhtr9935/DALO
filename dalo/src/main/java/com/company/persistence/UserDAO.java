@@ -1,7 +1,5 @@
 package com.company.persistence;
 
-import java.util.List;
-
 import com.company.DTO.LoginDTO;
 import com.company.domain.UserVO;
 public interface UserDAO {

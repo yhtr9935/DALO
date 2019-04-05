@@ -1,7 +1,6 @@
 package com.company.persistence;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import com.company.DTO.LoginDTO;
 
-import com.company.domain.BoardVO;
 import com.company.domain.UserVO;
 
 @Repository

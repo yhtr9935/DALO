@@ -21,11 +21,10 @@
 	}
 </style>
 <table class="table table-striped table-hover" id="boad">
-<caption><a href="/product/register" class="btn btn-primary" id="write">새 글쓰기</a></caption>
+<caption><a href="/product/addProduct" class="btn btn-primary" id="write">새 글쓰기</a></caption>
 	<tr>
 		<th width="10%">번호</th>
 		<th width="60%">제목</th>
-		<th>글쓴이</th>
 		<th>등록일</th>
 		<th>조회수</th>
 	</tr>
@@ -33,7 +32,6 @@
 		<tr>
 			<td>${productVO.bno}</td>
 			<td><a href="/product/read/${productVO.bno}">${productVO.title }</a></td>
-			<td>${productVO.writer}</td>
 			<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${productVO.regdate }" /></td>
 			<td><span class="badge">${productVO.viewcnt}</span></td>
 		</tr>

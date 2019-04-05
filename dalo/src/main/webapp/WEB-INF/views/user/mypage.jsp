@@ -21,7 +21,7 @@
 	width:300px;
 }
 </style>
-<script language = "javascript">
+<script>
 function del(){
     var pw = prompt("패스워드를 입력 해 주세요."+"");
     if (pw != document.deleteUser.pw.value){

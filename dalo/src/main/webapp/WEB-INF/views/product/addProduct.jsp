@@ -14,7 +14,7 @@
 	</div>
 	<div class="row">
 	<div class="col-md-10 col-md-offset-1">
-		<form class="form-horizontal" method="post">
+		<form class="form-horizontal" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label class="col-md-2 control-label" for="title">글제목</label>
 				<div class="col-md-10">
@@ -24,16 +24,14 @@
 			</div>
 			<div class="form-group">
 				<label class="col-md-2 control-label" for="title">이미지</label>
-					<div class="col-md-10">
-						<div>
-							<input type="file" id="photo" />
-						</div>
-						<div>
-							<div class="img_wrap">
-								<img id="photo" style="width:280px; height:280px;" />
-							</div>
-						</div>
+				<div class="col-md-10">
+					<div class="inputArea">
+ 						<label for="gdsImg">이미지</label>
+ 						<input type="file" id="gdsImg" name="file" />
+ 						<div class="select_img"><img src="" />
+ 						</div>
 					</div>
+				</div>
 			</div>
 			<div class="form-group">
 				<label for="info" class="control-label col-md-2">글내용</label>
@@ -55,29 +53,14 @@
 </div>
 <%@ include file="../include/footer.jsp" %>
 <script type="text/javascript"> 
-	var sel_file;
-	
-	$(document).ready(function(){
-		$("#input_img").on("change", handleImgFileSelect);	
-	});
-	
-	function handleImgFileSelect(e){
-		var files = e.target.files;
-		var filesArr = Array.prototype.slice.call(files);
-		
-		filesArr.forEach(function(f) {
-			if(!f.type.match("image.*")) {
-				alert("확장자는 이미지 확장자만 가능합니다.");
-				return;
-			}
-			
-			sel_file = f;
-			
-			var reader = new FileReader();
-			reader.onload = function(e) {
-				$("#img").attr("src", e.target.result);
-			}
-			reader.readAsDataURL(f);
-		});
+	$("#gdsImg").change(function(){
+		if(this.files && this.files[0]) {
+		var reader = new FileReader;
+		reader.onload = function(data) {
+		$(".select_img img").attr("src", data.target.result).width(500);        
+		}
+	reader.readAsDataURL(this.files[0]);
 	}
+});
 </script>
+<%=request.getRealPath("/") %>

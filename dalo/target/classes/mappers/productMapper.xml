@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mabatis.org/dtd/mybatis-3-mapper.dtd">
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mappers.productMapper">
-	<insert id="create">
+	<insert id="pcreate">
 		insert into product(title, body)
-		values (#{title}, #{content})
+		values (#{title}, #{body})
 	</insert>
 	
-	<select id="read" resultMap="productMap">
+	<select id="pread" resultMap="productMap">
 		select bno, title, body, regdate, viewcnt
 		from product
 		where bno = #{bno}
@@ -19,23 +19,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="bno" column = "bno" />
 		<result property="type" column = "type" />
 		<result property="title" column = "title" />
-		<result property="titlephoto" column = "titlephoto" />
 		<result property="body" column = "body" />
 		<result property="viewcnt" column = "viewcnt" />
 		<result property="regdate" column = "regdate" />
-		<result property="photo" column = "photo" />
 	</resultMap>
 	
-	<update id="update">
+	<update id="pupdate">
 		update product set title= #{title}, body = #{body}
 		where bno = #{bno}
 	</update>
 	
-	<delete id="delete">
+	<delete id="pdelete">
 		delete from product where bno = #{bno}
 	</delete>
 	
-	<select id="listCriteria" resultType="com.company.domain.ProductVO">
+	<select id="plistCriteria" resultType="com.company.domain.ProductVO">
 		<![CDATA[
 			select bno, title, body, regdate, viewcnt
 			from product where bno > 0
@@ -44,7 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		]]>
 	</select>
 	
-	<select id="countPaging" resultType="int">
+	<select id="pcountPaging" resultType="int">
 	<![CDATA[
 			select count(bno)
 			from product
@@ -53,7 +51,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- <include refid="search"></include> -->
 	</select>
 	
-	<update id="updateCnt">
+	<update id="pupdateCnt">
 		update product set viewcnt = viewcnt+1 where bno = #{bno}
 	</update>
+	
+	
+
 </mapper>
