@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.userMapper">
+  	<select id="regdate" resultType="string">
+  		select now()
+  	</select>
+  	
+  	<insert id="insertUser">
+  		insert into user (id, pw, name, nickname, email, address, hp, regdate) values
+  		( #{id}, #{pw}, #{name}, #{nickname}, #{email}, #{address}, #{hp}, #{regdate})
+  	</insert>
+  	
+  	<select id="selectUser" resultType="com.company.domain.UserVO">
+  		select id, pw, name, nickname, email, address, hp, regdate from user where id = #{id}
+  	</select>
+  	
+  	<select id="readWithPW" resultType="com.company.domain.UserVO">
+  		select * from user where id = #{id} and pw = #{pw}
+  	</select>
+  	
+  	<resultMap type="UserVO" id="userMap">
+  		<result property="id" column="bno" />
+  		<result property="pw" column="title" />
+  		<result property="name" column="content" />
+  		<result property="nickname" column="writer" />
+  		<result property="regdate" column="regdate" />
+  	</resultMap>
+  	
+  	<select id="login" resultMap="userMap">
+  		select * from user where id = #{id} and pw = #{pw}
+  	</select>
+  	
+  	<update id="updateUser">
+  		update user set pw=#{pw}, name=#{name}, nickname=#{nickname}, email=#{email}, address=#{address}, hp=#{hp} where id=#{id}
+  	</update>
+  	
+  	<delete id="deleteUser">
+  		delete from user where id=#{id}
+  	</delete>
+  	
+  </mapper>
