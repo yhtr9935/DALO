@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.company.domain.Criteria;
 import com.company.domain.Criteria2;
 import com.company.domain.ProductVO;
 import com.company.persistence.ProductDAO;
