@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.company.domain.Criteria;
-import com.company.domain.PageMaker;
+import com.company.domain.Criteria2;
+import com.company.domain.PageMaker2;
 import com.company.domain.ProductVO;
 import com.company.service.ProductService;
 
@@ -34,13 +34,13 @@ public class ProductController {
 	
 	@RequestMapping(value="/read/{bno}", method=RequestMethod.GET)
 	public String read(@PathVariable("bno") int bno, Model model) throws Exception{
-		model.addAttribute(ps.read(bno));
+		model.addAttribute(ps.pread(bno));
 		return "/product/read";
 	}
 	
 	@RequestMapping(value="/modify/{bno}", method=RequestMethod.GET)
 	public String modify(@PathVariable("bno") int bno, Model model) throws Exception{
-		model.addAttribute(ps.read(bno));
+		model.addAttribute(ps.pread(bno));
 		return "/product/modify";
 	}
 	@RequestMapping(value="/modify/{bno}", method=RequestMethod.POST)
@@ -48,7 +48,7 @@ public class ProductController {
 		logger.info("글 등록 POST 요청입니다");
 		logger.info(board.toString());
 		try {
-			ps.modify(board);
+			ps.pmodify(board);
 		}catch(Exception e) {
 			e.printStackTrace();
 			model.addAttribute("result", "fail");
@@ -62,22 +62,22 @@ public class ProductController {
 	
 	@RequestMapping(value="/remove/{bno}", method=RequestMethod.GET)
 	public String remove(@PathVariable("bno") int bno, Model model) throws Exception{
-		ps.remove(bno);
+		ps.premove(bno);
 		return "redirect:/product/listPage";
 	}
 	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
-	public String listPage(@ModelAttribute("cri") Criteria cri, Model model, HttpServletRequest request) throws Exception {
+	public String listPage(@ModelAttribute("cri") Criteria2 cri, Model model, HttpServletRequest request) throws Exception {
 		
 		logger.info(cri.toString());
 		
-		model.addAttribute("list", ps.listCriteria(cri));  // 게시판의 글 리스트
-		PageMaker pageMaker = new PageMaker();
+		model.addAttribute("list", ps.plistCriteria(cri));  // 게시판의 글 리스트
+		PageMaker2 pageMaker = new PageMaker2();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(ps.listCountCriteria(cri));
+		pageMaker.setTotalCount(ps.plistCountCriteria(cri));
 		
 		model.addAttribute("pageMaker", pageMaker);  // 게시판 하단의 페이징 관련, 이전페이지, 페이지 링크 , 다음 페이지
 		request.setAttribute("page", pageMaker);
-		Criteria criteria = new Criteria();
+		Criteria2 criteria = new Criteria2();
 		request.setAttribute("page2", criteria);
 		return "product/listPage";
 	}
@@ -92,7 +92,7 @@ public class ProductController {
 		logger.info("글 등록 POST 요청입니다");
 		logger.info(board.toString());
 		try {
-			ps.regist(board);
+			ps.pregist(board);
 		}catch(Exception e) {
 			e.printStackTrace();
 			model.addAttribute("result", "fail");

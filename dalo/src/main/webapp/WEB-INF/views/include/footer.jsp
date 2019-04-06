@@ -10,13 +10,16 @@
 			height:300px;
 		}
 	table{
-		margin:25px 0 0 25%;
+		margin:25px auto;
 		text-align:left;
 		font-size:11px;
 	}
 	td{
 		width:400px;
 		vertical-align:top;
+		text-align:center;
+		font-size:11px;
+		font-weight:bold;
 	}
 	.footm{
 		font-weight:bold;

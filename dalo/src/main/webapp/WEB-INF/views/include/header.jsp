@@ -16,16 +16,15 @@
 		color:black;
 		text-decoration:none;
 	}
-	#subm{
-		margin:-15px 0 -15px 20%;
+	.subm{
 		font-size:20;
-		text-align:left;
 	}
-	#dailylook{
-		margin-left:80px;
+	#to{
+		margin-top:30px;
+		margin-bottom:-25px;
 	}
-	#review{
-		margin-left:80px;
+	#bo{
+		margin-top:-20px;
 	}
 </style>
 <meta charset="UTF-8">
@@ -35,13 +34,16 @@
 <%@ include file="menu.jsp" %>
 <div id="heade">
 <a href="/.." id="dalo">DALO</a>
-<hr>
-<p id="subm">
-<a href="/product/listPage">Store</a>
-<span id="dailylook">DailyLook</span>
-<span id="review">Review</span>
+<hr id="to">
+<table>
+<tr>
+<td class="subm"><a href="/product/listPage">Store</a></td>
+<td class="subm"><span id="dailylook">DailyLook</span></td>
+<td class="subm"><span id="review">Review</span></td>
+</tr>
 </p>
-<hr>
+</table>
+<hr id="bo">
 </div>
 </body>
 </html>

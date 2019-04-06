@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+"http://mabatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mappers.productMapper">
 	<insert id="pcreate">
@@ -22,6 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="body" column = "body" />
 		<result property="viewcnt" column = "viewcnt" />
 		<result property="regdate" column = "regdate" />
+		<result property="photo" column = "photo" />
 	</resultMap>
 	
 	<update id="pupdate">
@@ -54,7 +55,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="pupdateCnt">
 		update product set viewcnt = viewcnt+1 where bno = #{bno}
 	</update>
-	
-	
-
 </mapper>
