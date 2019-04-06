@@ -61,6 +61,10 @@
 		width:150px;
 		display:inline;
 	}
+	#email2{
+		width:150px;
+		display:inline;
+	}
 	#inp{
 		width:323px;
 	}
@@ -108,7 +112,7 @@
 						<label for="upw" class="col-sm-2 control-label">이메일</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="email" name="email"> @ 
-							<select name="email" class="form-control" id="email" name="email">
+							<select class="form-control" id="email2" name="email2">
 								<option value="naver.com">naver.com</option>
 							</select>
 						</div>
