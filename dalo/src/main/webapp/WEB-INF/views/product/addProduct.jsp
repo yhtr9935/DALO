@@ -26,8 +26,8 @@
 				<label class="col-md-2 control-label" for="title">이미지</label>
 				<div class="col-md-10">
 					<div class="inputArea">
- 						<label for="gdsImg">이미지</label>
- 						<input type="file" id="gdsImg" name="file" />
+ 						<label for="photo">이미지</label>
+ 						<input type="file" id="photo" name="file" />
  						<div class="select_img"><img src="" />
  						</div>
 					</div>
@@ -37,6 +37,22 @@
 				<label for="info" class="control-label col-md-2">글내용</label>
 				<div class="col-md-10 col-md-offset-2">
 					<textarea class="form-control" id="content" name="content" rows="5"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="title">종류</label>
+				<div class="col-md-10">
+					<select name="type">
+						<option value="1">맨투맨/후드</option>
+						<option value="2">니트/가디건</option>
+						<option value="3">아우터</option>
+						<option value="4">티셔츠</option>
+						<option value="5">셔츠</option>
+						<option value="6">바지</option>
+						<option value="7">트레이닝</option>
+						<option value="8">신발</option>
+						<option value="9">악세사리</option>
+					</select>
 				</div>
 			</div>
 			<div class="form-group">
@@ -53,7 +69,7 @@
 </div>
 <%@ include file="../include/footer.jsp" %>
 <script type="text/javascript"> 
-	$("#gdsImg").change(function(){
+	$("#photo").change(function(){
 		if(this.files && this.files[0]) {
 		var reader = new FileReader;
 		reader.onload = function(data) {

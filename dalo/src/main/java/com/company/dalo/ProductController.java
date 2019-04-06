@@ -1,5 +1,8 @@
 package com.company.dalo;
 
+import java.io.File;
+
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,12 +14,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.company.domain.Criteria2;
 import com.company.domain.PageMaker2;
 import com.company.domain.ProductVO;
 import com.company.service.ProductService;
+import com.company.utils.UploadFileUtils;
 
 @Controller
 @RequestMapping("/product")
@@ -25,6 +30,9 @@ public class ProductController {
 	
 	@Inject
 	private ProductService ps;
+	
+	@Resource(name="uploadPath")
+	private String uploadPath;
 	/*
 	 * @RequestMapping(value="/list", method=RequestMethod.GET) public void
 	 * listAll(Model model) throws Exception{ logger.info("모든 글 목록을 다 가져옵니다");
@@ -87,7 +95,18 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/addProduct", method=RequestMethod.POST)
-	public String addProductPOST(ProductVO board, Model model, RedirectAttributes rttr) {
+	public String addProductPOST(ProductVO board, Model model, RedirectAttributes rttr, MultipartFile file) throws Exception {
+		String imgUploadPath = uploadPath + File.separator + "imgUpload";
+		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+		String fileName = null;
+
+		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+		 fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath); 
+		} else {
+		 fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
+		}
+		board.setPhoto(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
+		
 		logger.info("글 등록 POST 요청입니다");
 		logger.info(board.toString());
 		try {

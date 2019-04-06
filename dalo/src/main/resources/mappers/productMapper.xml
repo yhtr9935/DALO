@@ -4,9 +4,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mabatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mappers.productMapper">
+
+	<!-- 상품 등록 -->
+	<!-- 
 	<insert id="pcreate">
 		insert into product(title, body)
 		values (#{title}, #{body})
+	</insert> -->
+	<insert id="pcreate">
+		insert into product (type, title, body, viewcnt, regdate, photo)
+		values (#{type}, #{title}, #{body}, #{viewcnt}, #{regdate}, #{photo})
 	</insert>
 	
 	<select id="pread" resultMap="productMap">
