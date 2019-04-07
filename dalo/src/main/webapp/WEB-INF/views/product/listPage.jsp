@@ -19,23 +19,76 @@
 		font-size:20;
 		font-color:black;
 	}
+	#prts{
+		width:300px;
+		height:400px;
+		border:solid 1px;
+	}
+	#prdt{
+		width:300px;
+		height:250px;
+		border:solid 1px;
+	}
+	.interval{
+		margin:0 20px 0 20px;
+	}
+	.intervalh{
+		margin:200px 0 200px 0;
+	}
+	#static{
+		display:block;
+		margin:0 auto;
+		width:auto;
+		max-width:300px;
+		height:250px;
+		background-size: contain;
+	}
+	#title{
+		padding-top:10px;
+		font-size:20;
+		align:left;
+	}
+	#subex{
+		padding-top:10px;
+		font-size:10;
+	}
+	#price{
+		font-size:20;
+		font-weight:bold;
+	}
 </style>
-<table class="table table-striped table-hover" id="boad">
+<table class="table table-borderless" id="boad">
 <caption><a href="/product/addProduct" class="btn btn-primary" id="write">새 글쓰기</a></caption>
-	<tr>
-		<th width="10%">번호</th>
-		<th width="60%">제목</th>
-		<th>등록일</th>
-		<th>조회수</th>
+	<tr id="prt">
+		<c:forEach items="${list}" var="productVO" varStatus="status">
+		<c:if test="${status.count % 4 != 0 }">
+			<td class="interval"></td>
+			<td id="prts">
+			<div id="prdt"><a href="/product/read/${productVO.bno}"><img src="${productVO.photo}" class="rounded-0" id="static"/></a></div>
+			<div id="title">
+			<p align="left">타이틀</p>
+			<p id="subex" align="left">서브</p>
+			<p id="price" align="left">가격</p>
+			</div>
+			</td>
+			<td class="interval"></td>
+		</c:if>
+		<c:if test="${status.count % 4 == 0 }">
+			<td class="interval"></td>
+			<td id="prts">
+			<div id="prdt"><a href="/product/read/${productVO.bno}"><img src="${productVO.photo}" class="rounded-0" id="static"/></a></div>
+			<div id="title">
+			<p align="left">타이틀</p>
+			<p id="subex" align="left">서브</p>
+			<p id="price" align="left">가격</p>
+			</div>
+			</td>
+			<td class="interval"></td>
+			<tr><td class="intervalh"></td></tr>
+		</c:if>
+		</c:forEach>
+	
 	</tr>
-	<c:forEach items="${list}" var="productVO">
-		<tr>
-			<td>${productVO.bno}</td>
-			<td><a href="/product/read/${productVO.bno}">${productVO.title }</a></td>
-			<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${productVO.regdate }" /></td>
-			<td><span class="badge">${productVO.viewcnt}</span></td>
-		</tr>
-	</c:forEach>
 </table>
 <div id="pagenum">
 <c:forEach begin="${page.getStartPage()}" end="${page.getEndPage()}" var="idx">

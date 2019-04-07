@@ -9,6 +9,35 @@ public class ProductVO {
 	private int viewcnt;
 	private String regdate;
 	private String photo;
+	private String oldprice;
+	private String price;
+	private String color;
+	private String size;
+	
+	public String getSize() {
+		return size;
+	}
+	public void setSize(String size) {
+		this.size = size;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public String getOldprice() {
+		return oldprice;
+	}
+	public void setOldprice(String oldprice) {
+		this.oldprice = oldprice;
+	}
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
 	public int getBno() {
 		return bno;
 	}

@@ -16,10 +16,24 @@
 	<div class="col-md-10 col-md-offset-1">
 		<form class="form-horizontal" method="post" enctype="multipart/form-data">
 			<div class="form-group">
-				<label class="col-md-2 control-label" for="title">글제목</label>
-				<div class="col-md-10">
+				<label class="col-md-2 control-label" for="title">상품명</label>
+				<div class="col-md-3">
 					<input type="text" name="title" id="title" class="form-control"
 					placeholder="글 제목을 입력하세요" required />
+				</div>
+				<label class="col-md-2 control-label" for="title">종류</label>
+				<div class="col-md-3">
+					<select name="type" class="form-control form-control-lg">
+						<option value="1">맨투맨/후드</option>
+						<option value="2">니트/가디건</option>
+						<option value="3">아우터</option>
+						<option value="4">티셔츠</option>
+						<option value="5">셔츠</option>
+						<option value="6">바지</option>
+						<option value="7">트레이닝</option>
+						<option value="8">신발</option>
+						<option value="9">악세사리</option>
+					</select>
 				</div>
 			</div>
 			<div class="form-group">
@@ -34,29 +48,39 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label class="col-md-2 control-label" for="title">소비자가격</label>
+				<div class="col-md-3">
+					<input type="text" name="oldprice" id="oldprice" class="form-control"
+					placeholder="소비자 판매 가격" required />
+				</div>
+				<label class="col-md-2 control-label" for="title">판매가격</label>
+				<div class="col-md-3">
+					<input type="text" name="price" id="price" class="form-control"
+					placeholder="현 매장 판매 가격" required />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="title">컬러</label>
+				<div class="col-md-2">
+					<input type="text" name="color" id="color" class="form-control" /><br>
+					<input type="text" name="color" id="color" class="form-control" /><br>
+					<input type="text" name="color" id="color" class="form-control" /><br>
+					<input type="text" name="color" id="color" class="form-control" /><br>
+				</div>
+				<label class="col-md-2 control-label" for="title">사이즈</label>
+				<div class="col-md-3">
+					<input type="checkbox" name="size" id="size" value="S" />S
+					<input type="checkbox" name="size" id="size" value="M" />M
+					<input type="checkbox" name="size" id="size" value="L" />L
+					<input type="checkbox" name="size" id="size" value="XL" />XL
+					<input type="checkbox" name="size" id="size" value="XXL" />XXL
+				</div>
+			</div>
+			<div class="form-group">
 				<label for="info" class="control-label col-md-2">글내용</label>
 				<div class="col-md-10 col-md-offset-2">
-					<textarea class="form-control" id="content" name="content" rows="5"></textarea>
+					<textarea class="form-control" id="body" name="body" rows="5"></textarea>
 				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-md-2 control-label" for="title">종류</label>
-				<div class="col-md-10">
-					<select name="type">
-						<option value="1">맨투맨/후드</option>
-						<option value="2">니트/가디건</option>
-						<option value="3">아우터</option>
-						<option value="4">티셔츠</option>
-						<option value="5">셔츠</option>
-						<option value="6">바지</option>
-						<option value="7">트레이닝</option>
-						<option value="8">신발</option>
-						<option value="9">악세사리</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<input type="hidden" name="writer" id="writer" class="form-control" value="${login.nickname}" />
 			</div>
 			<div class="form-group">
 				<div class="col-md-2 col-md-offset-2">

@@ -12,15 +12,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values (#{title}, #{body})
 	</insert> -->
 	<insert id="pcreate">
-		insert into product (type, title, body, viewcnt, regdate, photo)
-		values (#{type}, #{title}, #{body}, #{viewcnt}, #{regdate}, #{photo})
+		insert into product (type, title, body, regdate, photo, oldprice, price, color, size)
+		values (#{type}, #{title}, #{body}, #{regdate}, #{photo}, #{oldprice}, #{price}, #{color}, #{size})
 	</insert>
 	
 	<select id="pread" resultMap="productMap">
-		select bno, title, body, regdate, viewcnt
+		select bno, title, body, regdate, viewcnt, photo, type, oldprice, price
 		from product
 		where bno = #{bno}
 	</select>
+	<!-- 상품 조회 + 카테고리 조인-->
+	<!--
+	<select id="goodsView" resultType="com.kubg.domain.GoodsViewVO">
+		select bno, title, body, regdate, viewcnt
+		from product
+		inner join goods_category c
+		on g.cateCode = c.cateCode           
+		where g.gdsNum = #{gdsNum}
+	</select>-->
 	
 	<resultMap type="ProductVO" id="productMap">
 		<result property="bno" column = "bno" />
@@ -30,6 +39,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="viewcnt" column = "viewcnt" />
 		<result property="regdate" column = "regdate" />
 		<result property="photo" column = "photo" />
+		<result property="oldprice" column = "oldprice" />
+		<result property="price" column = "price" />
+		<result property="color" column = "color" />
+		<result property="size" column = "size" />
 	</resultMap>
 	
 	<update id="pupdate">
@@ -43,7 +56,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="plistCriteria" resultType="com.company.domain.ProductVO">
 		<![CDATA[
-			select bno, title, body, regdate, viewcnt
+			select bno, title, photo, regdate, viewcnt
 			from product where bno > 0
 			order by bno desc, regdate desc
 			limit #{pageStart}, #{perPageNum}
