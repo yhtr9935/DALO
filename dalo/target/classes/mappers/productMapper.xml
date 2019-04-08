@@ -12,12 +12,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values (#{title}, #{body})
 	</insert> -->
 	<insert id="pcreate">
-		insert into product (type, title, body, regdate, photo, oldprice, price, color, size)
-		values (#{type}, #{title}, #{body}, #{regdate}, #{photo}, #{oldprice}, #{price}, #{color}, #{size})
+		insert into product (type, title, body, regdate, photo, oldprice, price, size)
+		values (#{type}, #{title}, #{body}, #{regdate}, #{photo}, #{oldprice}, #{price}, #{size})
 	</insert>
 	
 	<select id="pread" resultMap="productMap">
-		select bno, title, body, regdate, viewcnt, photo, type, oldprice, price
+		select bno, title, body, regdate, viewcnt, photo, type, oldprice, price, size
 		from product
 		where bno = #{bno}
 	</select>
@@ -41,8 +41,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="photo" column = "photo" />
 		<result property="oldprice" column = "oldprice" />
 		<result property="price" column = "price" />
-		<result property="color" column = "color" />
 		<result property="size" column = "size" />
+		<result property="titlesub" column = "titlesub" />
 	</resultMap>
 	
 	<update id="pupdate">
@@ -56,7 +56,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="plistCriteria" resultType="com.company.domain.ProductVO">
 		<![CDATA[
-			select bno, title, photo, regdate, viewcnt
+			select bno, title, photo, regdate, viewcnt, price, titlesub, oldprice
 			from product where bno > 0
 			order by bno desc, regdate desc
 			limit #{pageStart}, #{perPageNum}

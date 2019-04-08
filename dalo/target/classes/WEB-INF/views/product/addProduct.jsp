@@ -19,8 +19,15 @@
 				<label class="col-md-2 control-label" for="title">상품명</label>
 				<div class="col-md-3">
 					<input type="text" name="title" id="title" class="form-control"
-					placeholder="글 제목을 입력하세요" required />
+					placeholder="상품명 입력" required />
 				</div>
+				<label class="col-md-2 control-label" for="title">부가설명</label>
+				<div class="col-md-3">
+					<input type="text" name="titlesub" id="titlesub" class="form-control"
+					placeholder="서브타이틀 입력" required />
+				</div>
+			</div>
+			<div class="form-group">
 				<label class="col-md-2 control-label" for="title">종류</label>
 				<div class="col-md-3">
 					<select name="type" class="form-control form-control-lg">
@@ -60,13 +67,6 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-2 control-label" for="title">컬러</label>
-				<div class="col-md-2">
-					<input type="text" name="color" id="color" class="form-control" /><br>
-					<input type="text" name="color" id="color" class="form-control" /><br>
-					<input type="text" name="color" id="color" class="form-control" /><br>
-					<input type="text" name="color" id="color" class="form-control" /><br>
-				</div>
 				<label class="col-md-2 control-label" for="title">사이즈</label>
 				<div class="col-md-3">
 					<input type="checkbox" name="size" id="size" value="S" />S

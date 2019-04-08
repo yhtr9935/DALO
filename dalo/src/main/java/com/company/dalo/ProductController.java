@@ -105,7 +105,7 @@ public class ProductController {
 		} else {
 		 fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
 		}
-		board.setPhoto(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
+		board.setPhoto(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
 		
 		logger.info("글 등록 POST 요청입니다");
 		logger.info(board.toString());

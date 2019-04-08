@@ -21,19 +21,19 @@
 	}
 	#prts{
 		width:300px;
-		height:400px;
+		height:370px;
 		border:solid 1px;
 	}
 	#prdt{
 		width:300px;
 		height:250px;
-		border:solid 1px;
 	}
 	.interval{
 		margin:0 20px 0 20px;
 	}
 	.intervalh{
-		margin:200px 0 200px 0;
+		margin:400px 0 400px 0;
+		padding:10px;
 	}
 	#static{
 		display:block;
@@ -47,40 +47,50 @@
 		padding-top:10px;
 		font-size:20;
 		align:left;
+		padding-left:10px;
 	}
 	#subex{
 		padding-top:10px;
 		font-size:10;
+		color:#aaa;
 	}
 	#price{
 		font-size:20;
 		font-weight:bold;
 	}
 </style>
-<table class="table table-borderless" id="boad">
+<table id="boad">
 <caption><a href="/product/addProduct" class="btn btn-primary" id="write">새 글쓰기</a></caption>
 	<tr id="prt">
 		<c:forEach items="${list}" var="productVO" varStatus="status">
 		<c:if test="${status.count % 4 != 0 }">
+			<c:set var="discount" value="${100-(productVO.price/(productVO.oldprice/100))}" />
 			<td class="interval"></td>
 			<td id="prts">
 			<div id="prdt"><a href="/product/read/${productVO.bno}"><img src="${productVO.photo}" class="rounded-0" id="static"/></a></div>
 			<div id="title">
-			<p align="left">타이틀</p>
-			<p id="subex" align="left">서브</p>
-			<p id="price" align="left">가격</p>
+			<p align="left" padding="10px">${productVO.title}</p>
+			<p id="subex" align="left">${productVO.titlesub}</p>
+			<p id="price" align="left"><span style="color:red;">
+			<fmt:formatNumber value="${discount-(discount%1)}" pattern="0"/>%
+			</span> 
+			<fmt:formatNumber value="${productVO.price}" />원</p>
 			</div>
 			</td>
 			<td class="interval"></td>
 		</c:if>
 		<c:if test="${status.count % 4 == 0 }">
+			<c:set var="discount" value="${100-(productVO.price/(productVO.oldprice/100))}" />
 			<td class="interval"></td>
 			<td id="prts">
 			<div id="prdt"><a href="/product/read/${productVO.bno}"><img src="${productVO.photo}" class="rounded-0" id="static"/></a></div>
 			<div id="title">
-			<p align="left">타이틀</p>
-			<p id="subex" align="left">서브</p>
-			<p id="price" align="left">가격</p>
+			<p align="left">${productVO.title}</p>
+			<p id="subex" align="left">${productVO.titlesub}</p>
+			<p id="price" align="left"><span style="color:red;">
+			<fmt:formatNumber value="${discount-(discount%1)}" pattern="0"/>%
+			</span> 
+			<fmt:formatNumber value="${productVO.price}" />원</p>
 			</div>
 			</td>
 			<td class="interval"></td>
