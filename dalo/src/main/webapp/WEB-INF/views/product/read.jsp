@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <link href="/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
@@ -38,7 +39,27 @@
 		vertical-align:middle;
 		border-top:solid 1px #ccc;
 	}
-</style>
+	#tadd{
+		width:350px;
+		border:solid 5px #FF7928;
+		margin:0 auto;
+		text-align:left;
+	}
+	#adds{
+		
+	}
+	#add{
+		font-size:16;
+		
+	}
+	.lefts{
+		text-align:left;
+		vertical-align:middle;
+	}
+	#productNum{
+		width:50px;
+	}
+	</style>
 <%@ include file="../include/header.jsp" %>
 <table>
 	<tr>
@@ -84,12 +105,13 @@
 			</tr>
 			<tr>
 			<td colspan="2">
-				<select onchange="chageLangSelect(this)">
+				<select onchange="chageLangSelect(this)" id="choice">
+					<option>상품을 선택 해 주세요</option>
 					<script>
 						var jbString = '${productVO.size}';
 						var jbSplit = jbString.split( ',', 5 );
 						for ( var i in jbSplit ) {
-						document.write( "<option value='" + jbSplit[i] + "'>" + jbSplit[i] + "</option>" );
+							document.write( "<option value='" + jbSplit[i] + "'>" + jbSplit[i] + "</option>" );
 						}
 					</script>
 				</select>
@@ -97,12 +119,25 @@
 			</tr>
 			<tr>
 				<td colspan="2">
+				<span id="addss">
+				</span>
 					<script>
-					document.write("아아아");
 					function chageLangSelect(e){
-						document.write("<p>아아아이</p>");
+						var x = document.getElementById("choice").value;
+						document.getElementById("addss").innerHTML = 
+							"<div id='tadd'><table id='tbls'><tr><td class='lefts'><span id='add'>${productVO.title}</span><br>사이즈 "+ x + "</td><td class='lefts'><input type='number' min='1' step='1' value='1' id='productNum' onkeypress='priceNum(this)' onclick='priceNum(this)'><span id='allprice'>${productVO.price}원</span></td></tr></table></div>";
+					}
+					function priceNum(e){
+						var y = document.getElementById("productNum").value;
+						if (y <= 0){
+							alert("최소 주문수량은 1개 입니다.")
+							document.getElementById("productNum").value = 1;
+							return false;
+						}
+						document.getElementById("allprice").innerHTML = "${productVO.price}"*y+"원";
 					}
 					</script>
+					
 				</td>
 			</tr>
 			<tr>
