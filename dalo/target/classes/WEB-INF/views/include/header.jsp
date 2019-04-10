@@ -6,7 +6,7 @@
 <style type="text/css">
 	#heade{
 			margin-top:10px;
-			height:200px;
+			height:150px;
 			text-align:center;
 		}
 	#dalo{
@@ -18,13 +18,23 @@
 	}
 	.subm{
 		font-size:20;
+		width:200px;
+	}
+	.submenus{
+		text-decoration:none;
+		color:black;
+	}
+	.submenus:hover{
+		text-decoration:none;
+		color:black;
 	}
 	#to{
-		margin-top:30px;
-		margin-bottom:-20px;
+		margin-top:10px;
+		margin-bottom:-5px;
 	}
 	#bo{
-		margin-top:-20px;
+		margin-top:3px;
+		margin-bottom:10px;
 	}
 </style>
 <meta charset="UTF-8">
@@ -35,11 +45,11 @@
 <div id="heade">
 <a href="/.." id="dalo">DALO</a>
 <hr id="to">
-<table>
+<table style="margin-left:15%;">
 <tr>
-<td class="subm"><a href="/product/listPage">Store</a></td>
-<td class="subm"><span id="dailylook">DailyLook</span></td>
-<td class="subm"><span id="review">Review</span></td>
+<td class="subm"><a class="submenus" href="/product/listPage">Store</a></td>
+<td class="subm"><a class="submenus" href="#">DailyLook</a></td>
+<td class="subm"><a class="submenus" href="#">Review</a></td>
 </tr>
 </p>
 </table>

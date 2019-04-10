@@ -5,12 +5,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mappers.productMapper">
 
-	<!-- 상품 등록 -->
-	<!-- 
-	<insert id="pcreate">
-		insert into product(title, body)
-		values (#{title}, #{body})
-	</insert> -->
 	<insert id="pcreate">
 		insert into product (type, title, body, regdate, photo, oldprice, price, size)
 		values (#{type}, #{title}, #{body}, #{regdate}, #{photo}, #{oldprice}, #{price}, #{size})
@@ -21,15 +15,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from product
 		where bno = #{bno}
 	</select>
-	<!-- 상품 조회 + 카테고리 조인-->
-	<!--
-	<select id="goodsView" resultType="com.kubg.domain.GoodsViewVO">
-		select bno, title, body, regdate, viewcnt
-		from product
-		inner join goods_category c
-		on g.cateCode = c.cateCode           
-		where g.gdsNum = #{gdsNum}
-	</select>-->
 	
 	<resultMap type="ProductVO" id="productMap">
 		<result property="bno" column = "bno" />

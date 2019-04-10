@@ -19,6 +19,9 @@
 		font-size:20;
 		font-color:black;
 	}
+	.leftal{
+		text-align:left;
+	}
 </style>
 <table class="table table-striped table-hover" id="boad">
 <caption><a href="/board/register" class="btn btn-primary" id="write">새 글쓰기</a></caption>
@@ -31,11 +34,11 @@
 	</tr>
 	<c:forEach items="${list}" var="boardVO">
 		<tr>
-			<td>${boardVO.bno}</td>
-			<td><a href="/board/read/${boardVO.bno}">${boardVO.title }</a></td>
-			<td>${boardVO.writer}</td>
-			<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate }" /></td>
-			<td><span class="badge">${boardVO.viewcnt}</span></td>
+			<td class="leftal">${boardVO.bno}</td>
+			<td class="leftal"><a href="/board/read/${boardVO.bno}">${boardVO.title }</a></td>
+			<td class="leftal">${boardVO.writer}</td>
+			<td class="leftal"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate }" /></td>
+			<td class="leftal"><span class="badge">${boardVO.viewcnt}</span></td>
 		</tr>
 	</c:forEach>
 </table>

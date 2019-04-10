@@ -34,9 +34,12 @@ public class ProductServiceImpl implements ProductService {
 		dao.pdelete(bno);
 	}
 	/*
-	 * @Override public List<BoardVO> listAll() throws Exception { return
-	 * dao.listAll(); }
-	 */
+	@Override 
+	public List<ProductVO> listAll() throws Exception { 
+		return dao.listAll(); 
+	}
+	*/
+	 
 	@Override
 	public List<ProductVO> plistCriteria(Criteria2 cri) throws Exception {
 		return dao.plistCriteria(cri);

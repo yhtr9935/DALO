@@ -64,7 +64,7 @@ public class UserController {
 		}
 		
 		rttr.addAttribute("result", "success");
-		return "redirect:/board/list";
+		return "redirect:/";
 	}
 	
 	//

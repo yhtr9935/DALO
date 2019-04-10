@@ -32,6 +32,14 @@
 </script>
 <style type="text/css">
 	#STATICMENU { margin: 0pt; padding: 0pt;  position: absolute; right: 0px; top: 0px;}
+	#aaa{
+		text-decoration:none;
+		color:black;
+	}
+	#aaa:hover{
+		text-decoration:none;
+		color:black;
+	}
 </style>
 <head>
 <meta charset="UTF-8">
@@ -44,22 +52,21 @@
 <body id="" onload="InitializeStaticMenu();">
 <div id="STATICMENU">
 <!-- 사이드 배너 입력 -->
-asdasd
 <c:if test="${empty login}">
 	<li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">로그인<span class="caret"></span></a>
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="aaa">로그인<span class="caret"></span></a>
 		<ul class="dropdown-menu">
-			<li><a href="/user/login">로그인</a></li>
-			<li><a href="/user/register">회원가입</a></li>
+			<li><a href="/user/login" id="aaa">로그인</a></li>
+			<li><a href="/user/register" id="aaa">회원가입</a></li>
 		</ul>
 	</li>
 </c:if>
 <c:if test="${not empty login}">
 	<li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">${login.name}님(${login.id})<span class="caret"></span></a>
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="aaa">${login.name}님(${login.id})<span class="caret"></span></a>
 		<ul class="dropdown-menu">
-			<li><a href="#">회원정보</a></li>
-			<li><a href="/user/logout">로그아웃</a></li>
+			<li><a href="#" id="aaa">회원정보</a></li>
+			<li><a href="/user/logout" id="aaa">로그아웃</a></li>
 		</ul>
 	</li>
 </c:if>

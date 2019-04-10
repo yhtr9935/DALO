@@ -12,17 +12,27 @@
 	<style type="text/css">
 	#STATICMENU { margin: 0pt; padding: 0pt;  position: absolute; right: 0px; top: 0px;}
 		#conta{
-			border:1px solid;
 			margin:10px auto 10px;
-			width:1000px;
-			height:700px;
+		}
+		#main{
+			margin:10px auto 10px;
+		}
+		#img{
+			border:solid 1px #fdded9;
+			margin:0 auto;
+		}
+		#centezz{
+			margin-bottom:50px;
+			width:auto;
+			height:auto;
+			text-align:center;
 		}
 	</style>
 </head>
 <body>
 <%@ include file="include/header.jsp" %>
 <div id="conta">
-
+	<p id="centezz"><a href="product/listPage" id="main"><img src="imgUpload/dalomain.png" id="img" /></a></p>
 </div>
 <%@ include file="include/footer.jsp"%>
 </body>

@@ -14,7 +14,7 @@ public interface ProductService {
 	
 	public void premove(int bno) throws Exception;
 	
-	//public List<BoardVO> listAll() throws Exception;
+	//public List<ProductVO> listAll() throws Exception;
 	
 	public List<ProductVO> plistCriteria(Criteria2 cri) throws Exception;
 	public int plistCountCriteria(Criteria2 cri) throws Exception;

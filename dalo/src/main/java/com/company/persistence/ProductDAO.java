@@ -11,7 +11,7 @@ public interface ProductDAO {
 	public ProductVO pread(int bno) throws Exception;
 	public void pupdate(ProductVO vo) throws Exception;
 	public void pdelete(int bno) throws Exception;
-	//public List<BoardVO> listAll() throws Exception;
+	//public List<ProductVO> listAll() throws Exception;
 	public void pupdateCnt(int bno) throws Exception;
 
 	//게시판 페이징 

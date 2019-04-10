@@ -36,12 +36,12 @@ public class ProductDAOImpl implements ProductDAO {
 	public void pdelete(int bno) throws Exception {
 		session.delete(namespace + ".pdelete", bno);
 	}
-	
 	/*
-	 * @Override public List<BoardVO> listAll() throws Exception { return
-	 * session.selectList(namespace + ".listAll"); }
-	 */
-	
+	@Override 
+	public List<ProductVO> listAll() throws Exception {
+		return session.selectList(namespace + ".listAll"); 
+	}
+	*/
 	@Override
 	public void pupdateCnt(int bno) throws Exception {
 		session.update(namespace + ".pupdateCnt", bno);

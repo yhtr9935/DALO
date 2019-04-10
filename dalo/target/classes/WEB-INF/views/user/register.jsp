@@ -37,7 +37,15 @@
 			alert("주소를 입력 해 주세요.");
 			return false;
 		}
-		if (document.register.hp.value == "") {
+		if (document.register.hp1.value == "") {
+			alert("휴대폰 번호를 입력 해 주세요.");
+			return false;
+		}
+		if (document.register.hp2.value == "") {
+			alert("휴대폰 번호를 입력 해 주세요.");
+			return false;
+		}
+		if (document.register.hp3.value == "") {
 			alert("휴대폰 번호를 입력 해 주세요.");
 			return false;
 		}
@@ -52,7 +60,17 @@
 	.container{
 		width:520px;
 	}
-	#hp{
+	#hp1{
+		width:73px;
+		display:inline;
+		maxlength:4;
+	}
+	#hp2{
+		width:73px;
+		display:inline;
+		maxlength:4;
+	}
+	#hp3{
 		width:73px;
 		display:inline;
 		maxlength:4;
@@ -85,31 +103,31 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="upw" class="col-sm-2 control-label">비밀번호</label>
+						<label class="col-sm-2 control-label">비밀번호</label>
 						<div class="col-sm-10">
 							<input type="password" class="form-control" id="inp" name="pw">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="upw" class="col-sm-2 control-label">재확인</label>
+						<label class="col-sm-2 control-label">재확인</label>
 						<div class="col-sm-10">
 							<input type="password" class="form-control" id="inp" name="pw_confirm">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="upw" class="col-sm-2 control-label">이름</label>
+						<label class="col-sm-2 control-label">이름</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="inp" name="name">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="upw" class="col-sm-2 control-label">닉네임</label>
+						<label class="col-sm-2 control-label">닉네임</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="inp" name="nickname">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="upw" class="col-sm-2 control-label">이메일</label>
+						<label class="col-sm-2 control-label">이메일</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="email" name="email"> @ 
 							<select class="form-control" id="email2" name="email2">
@@ -118,24 +136,37 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="upw" class="col-sm-2 control-label">주소</label>
+						<label class="col-sm-2 control-label">주소</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="inp" name="address">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="upw" class="col-sm-2 control-label">휴대폰</label>
+						<label class="col-sm-2 control-label">휴대폰</label>
 						<div class="col-sm-10">
-							<select name="hp" class="form-control" id="hp" name="hp">
-								<option value="010">010</option>
+						<c:set var="a" value="010"/>
+							<select class="form-control" id="hp1" name="hp1" onchange="aa(this)">
+								<option value="010" selected="selected">010</option>
 								<option value="011">011</option>
 								<option value="012">012</option>
 								<option value="013">013</option>
 								<option value="014">014</option>
 								<option value="015">015</option>
 							</select> - 
-							<input type="tel" class="form-control" id="hp" name="hp2"> - 
-							<input type="tel" class="form-control" id="hp" name="hp3">
+							<input type="tel" class="form-control" id="hp2" name="hp2" onchange="aa(this)"> - 
+							<input type="tel" class="form-control" id="hp3" name="hp3" onchange="aa(this)">
+							<span id="addss1"></span>
+							<input type="hidden" id="test" value="010" name="hp">
+							<script>
+								function aa(e){
+									var a = document.getElementById("hp1").value;
+									var s = document.getElementById("hp2").value;
+									var d = document.getElementById("hp3").value;
+									$(document).ready(function() {
+								        $('#test').val(a+"-"+s+"-"+d);
+								    });
+								}
+							</script>
 						</div>
 					</div>
 					<div class="form-group">

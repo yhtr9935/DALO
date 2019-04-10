@@ -8,7 +8,7 @@
 <%@ include file="../include/header.jsp" %>
 <style>
 	#boad{
-		margin:-50px auto 50px auto;
+		margin:0px auto 50px auto;
 		width:1300px;
 	}
 	#write{
@@ -60,7 +60,9 @@
 	}
 </style>
 <table id="boad">
+<c:if test="${login.type == 1}">
 <caption><a href="/product/addProduct" class="btn btn-primary" id="write">새 글쓰기</a></caption>
+</c:if>
 	<tr id="prt">
 		<c:forEach items="${list}" var="productVO" varStatus="status">
 		<c:if test="${status.count % 4 != 0 }">

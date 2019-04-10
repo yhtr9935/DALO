@@ -1,18 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <link href="/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
 <style>
+	#tableread{
+		margin:0 auto 50px;
+		height:600px;
+	}
 	#interval{
 		width:50px;
 	}
 	#pdtimg{
 		wdith:500px;
 		height:520px;
-		border:solid 1px;
 	}
 	#img{
 		display:block;
@@ -26,13 +28,10 @@
 		font-size:20;
 		font-weight:bold;
 		text-align:left;
-		border-top:solid 1px #ccc;
 		vertical-align:middle;
-		width:150px;
+		width:630px;
 		height:50px;
-	}
-	td{
-		border:solid 1px;
+		border-top:solid 1px #ccc;
 	}
 	.product{
 		font-size:18;
@@ -40,28 +39,50 @@
 		border-top:solid 1px #ccc;
 	}
 	#tadd{
-		width:350px;
 		border:solid 5px #FF7928;
-		margin:0 auto;
 		text-align:left;
+		margin-top:15px;
 	}
 	#adds{
-		
 	}
 	#add{
 		font-size:16;
-		
 	}
 	.lefts{
 		text-align:left;
 		vertical-align:middle;
+		padding:5px 0 5px 20px;
+	}
+	.rights{
+		text-align:left;
+		vertical-align:middle;
+		width:200px;
+		padding:5px;
 	}
 	#productNum{
-		width:50px;
+		width:60px;
+		float:left;
+	}
+	#rtrt{
+		text-align:right;
+		padding:5px 30px 5px 0;
+	}
+	.prce{
+		font-size:20;
+		text-align:right;
+	}
+	#won{
+		font-size:15;
+	}
+	.butn{
+		margin-top:500px;
+	}
+	#interval2{
+		height:15px;
 	}
 	</style>
 <%@ include file="../include/header.jsp" %>
-<table>
+<table id="tableread">
 	<tr>
 		<td>
 			<div id="pdtimg">
@@ -105,13 +126,14 @@
 			</tr>
 			<tr>
 			<td colspan="2">
-				<select onchange="chageLangSelect(this)" id="choice">
-					<option>상품을 선택 해 주세요</option>
+			<hr style="border:solid 1px black;">
+				<select onchange="chageLangSelect(this)" id="choice" class="form-control">
+					<option value="" selected="selected" disabled="disabled">(필수)상품 사이즈 선택</option>
 					<script>
 						var jbString = '${productVO.size}';
 						var jbSplit = jbString.split( ',', 5 );
 						for ( var i in jbSplit ) {
-							document.write( "<option value='" + jbSplit[i] + "'>" + jbSplit[i] + "</option>" );
+							document.write( "<option value='" + jbSplit[i] + "'>" + jbSplit[i] + " (+${productVO.price}원)</option>" );
 						}
 					</script>
 				</select>
@@ -125,7 +147,7 @@
 					function chageLangSelect(e){
 						var x = document.getElementById("choice").value;
 						document.getElementById("addss").innerHTML = 
-							"<div id='tadd'><table id='tbls'><tr><td class='lefts'><span id='add'>${productVO.title}</span><br>사이즈 "+ x + "</td><td class='lefts'><input type='number' min='1' step='1' value='1' id='productNum' onkeypress='priceNum(this)' onclick='priceNum(this)'><span id='allprice'>${productVO.price}원</span></td></tr></table></div>";
+							"<div id='tadd'><table id='tbls'><tr><td class='lefts'><span id='add'>${productVO.title}</span><br>사이즈 "+ x + "</td><td class='rights'><input type='number' min='1' step='1' value='1' id='productNum' onkeypress='priceNum(this)' onclick='priceNum(this)' class='form-control'><button type='button' class='close' aria-label='Close' onclick='cancel(this)'><span aria-hidden='true'>&times;</span></button></td></tr><tr><td colspan='2' id='rtrt'><hr><span id='allprice' class='prce'>${productVO.price}</span><span id='won'> 원 </span></td></tr></table></div>";
 					}
 					function priceNum(e){
 						var y = document.getElementById("productNum").value;
@@ -134,19 +156,31 @@
 							document.getElementById("productNum").value = 1;
 							return false;
 						}
-						document.getElementById("allprice").innerHTML = "${productVO.price}"*y+"원";
+						var xx =  "${productVO.price}"*y;
+						var yy = parseInt(xx*y);
+						document.getElementById("allprice").innerHTML = "${productVO.price}"*y;
+					}
+					function cancel(e){
+						document.getElementById("addss").innerHTML = "";
 					}
 					</script>
-					
 				</td>
 			</tr>
 			<tr>
-				<td class="bold">
-				<button type="submit" value="주문하기">주문하기</button>
+				<td id="interval2">
 				</td>
-				<td class="product">
-				<button type="submit" value="주문하기">장바구니</button>
+			</tr>
+			<tr>
+				<td class="butn">
+				<button type="submit" class="btn btn-warning" value="주문하기">주문하기</button>
 				</td>
+				<td class="butn">
+				<button type="submit" class="btn btn-warning" value="주문하기">장바구니</button>
+				</td>
+			</tr>
+			<tr>
+			<td id="interval2">
+			</td>
 			</tr>
 				<tr>
 				<td colspan="2">

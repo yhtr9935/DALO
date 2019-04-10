@@ -121,4 +121,10 @@ public class ProductController {
 		rttr.addAttribute("result", "success");
 		return "redirect:/product/listPage";
 	}
+	
+	/*
+	 * @RequestMapping(value="/cart", method=RequestMethod.GET) public void
+	 * listAll(Model model) throws Exception{ logger.info("모든 글 목록을 다 가져옵니다");
+	 * model.addAttribute("list", ps.listAll()); }
+	 */
 }

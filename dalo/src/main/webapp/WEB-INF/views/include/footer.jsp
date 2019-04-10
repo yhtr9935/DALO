@@ -9,7 +9,7 @@
 			background-color:#eee;
 			height:300px;
 		}
-	table{
+	#tblfot{
 		margin:25px auto;
 		text-align:left;
 		font-size:11px;
@@ -37,7 +37,7 @@
 <body>
 <div id="foote">
 <hr color="black">
-<table>
+<table id="tblfot">
 <tr>
 <td>
 <span class="footm">고객센터</span><br><br>
